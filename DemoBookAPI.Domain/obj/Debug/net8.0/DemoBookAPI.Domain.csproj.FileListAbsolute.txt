@@ -9,3 +9,4 @@ E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBo
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\refint\DemoBookAPI.Domain.dll
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.pdb
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\ref\DemoBookAPI.Domain.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.sourcelink.json

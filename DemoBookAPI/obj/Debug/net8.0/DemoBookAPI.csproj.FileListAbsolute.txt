@@ -170,3 +170,4 @@ E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI\obj\Debug\net8.0\refint\DemoBo
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI\obj\Debug\net8.0\DemoBookAPI.pdb
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI\obj\Debug\net8.0\DemoBookAPI.genruntimeconfig.cache
 E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI\obj\Debug\net8.0\ref\DemoBookAPI.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI\obj\Debug\net8.0\DemoBookAPI.sourcelink.json
