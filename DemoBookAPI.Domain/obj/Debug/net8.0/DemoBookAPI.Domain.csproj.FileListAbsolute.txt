@@ -1,0 +1,11 @@
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\bin\Debug\net8.0\DemoBookAPI.Domain.deps.json
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\bin\Debug\net8.0\DemoBookAPI.Domain.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\bin\Debug\net8.0\DemoBookAPI.Domain.pdb
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.AssemblyInfoInputs.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.AssemblyInfo.cs
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.csproj.CoreCompileInputs.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\refint\DemoBookAPI.Domain.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\DemoBookAPI.Domain.pdb
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.Domain\obj\Debug\net8.0\ref\DemoBookAPI.Domain.dll

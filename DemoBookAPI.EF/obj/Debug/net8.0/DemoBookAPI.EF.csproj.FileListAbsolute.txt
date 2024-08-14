@@ -1,0 +1,17 @@
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.EF.deps.json
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.EF.runtimeconfig.json
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.EF.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.EF.pdb
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.Domain.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\bin\Debug\net8.0\DemoBookAPI.Domain.pdb
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.csproj.AssemblyReference.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.GeneratedMSBuildEditorConfig.editorconfig
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.AssemblyInfoInputs.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.AssemblyInfo.cs
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.csproj.CoreCompileInputs.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBook.69E35BA3.Up2Date
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\refint\DemoBookAPI.EF.dll
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.pdb
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\DemoBookAPI.EF.genruntimeconfig.cache
+E:\sourcecontrol\mygithub\DemoBookAPI\DemoBookAPI.EF\obj\Debug\net8.0\ref\DemoBookAPI.EF.dll
