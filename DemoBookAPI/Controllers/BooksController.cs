@@ -12,11 +12,14 @@ namespace DemoBookAPI.Controllers
     {
         private readonly IBaseRepository<Book> _bookRepository;
         private readonly IBaseRepository<BookDetail> _bookDetailRepository;
+        private readonly IBaseRepository<CategoryBooks> _categoryBooksRepository;
 
-        public BooksController( IBaseRepository<Book> baseRepository,IBaseRepository<BookDetail> bookDetailRepository)
+        public BooksController( IBaseRepository<Book> baseRepository,IBaseRepository<BookDetail> bookDetailRepository
+            ,IBaseRepository<CategoryBooks> categoryBooksRepository)
         {
             _bookRepository = baseRepository;
             _bookDetailRepository = bookDetailRepository;
+            _categoryBooksRepository = categoryBooksRepository;
         }
 
         [HttpGet]
@@ -51,6 +54,15 @@ namespace DemoBookAPI.Controllers
                 ISBN = request.ISBN,
                 PublishDate = request.PublishDate
             });
+            //insert into linked table CategoryBooks
+            if (request.CategoryId > 0)
+            {
+                var cbResult = _categoryBooksRepository.Add(new CategoryBooks
+                {
+                    BookId = bookResult.BookId,
+                    CategoryId = request.CategoryId
+                });
+            }
             var response = new AddBookResponse
             {
                 BookId = bookResult.BookId,
@@ -58,8 +70,9 @@ namespace DemoBookAPI.Controllers
                 Summary = bookResult.Summary,
                 Title = request.Title,
                 PublishDate = bookDetialResult.PublishDate,
-                AddedDate = request.AddedDate,
-                ISBN = bookDetialResult.ISBN
+                AddedDate = bookDetialResult.AddedDate,
+                ISBN = bookDetialResult.ISBN,
+                CategoryId = request.CategoryId
             };
             return Ok(response);
         }

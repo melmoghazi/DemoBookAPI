@@ -1,0 +1,11 @@
+﻿{
+  //book json
+  "object": {
+    "title": "Intro to SQL",
+    "summary": "Introduction to SQL",
+    "authorId": 1,
+    "publishDate": "2024-08-15T11:54:50.106Z",
+    "isbn": "12-12",
+    "categoryId": 1
+  }
+}

@@ -9,6 +9,7 @@ namespace DemoBookAPI.Models
         public int? AuthorId { get; set; }
         public DateTime PublishDate { get; set; }
         public string ISBN { get; set; }
-        public DateTime AddedDate { get; set; }
+        public int CategoryId { get; set; }
+
     }
 }

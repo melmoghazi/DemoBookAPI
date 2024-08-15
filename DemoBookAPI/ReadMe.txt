@@ -50,9 +50,6 @@ Microsoft.EntityFrameworkCore.SqlServer
 //Create migration
 add-migration migrationname
 
-//delete migration
-remove-migration
-
 //get list of existing migrations
 Get-Migration
 
