@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoBookAPI.Core\DemoBookAPI.Core.csproj" />
+    <ProjectReference Include="..\DemoBookAPI.Domain\DemoBookAPI.Domain.csproj" />
     <ProjectReference Include="..\DemoBookAPI.EF\DemoBookAPI.EF.csproj" />
   </ItemGroup>
 

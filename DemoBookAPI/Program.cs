@@ -1,5 +1,7 @@
 
+using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.EF;
+using DemoBookAPI.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoBookAPI
@@ -22,6 +24,10 @@ namespace DemoBookAPI
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
                         b => b.MigrationsAssembly(typeof(DemoBookAPIContext).Assembly.FullName)));
+
+            builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

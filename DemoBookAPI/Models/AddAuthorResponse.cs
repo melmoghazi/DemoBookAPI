@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DemoBookAPI.Domain
+﻿namespace DemoBookAPI.Models
 {
-    public class Author
+    public class AddAuthorResponse
     {
-        public Author()
-        {
-            Books = new List<Book>();
-        }
         public int AuthorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -20,7 +10,5 @@ namespace DemoBookAPI.Domain
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime AddedDate { get; set; }
-        //One author many books
-        public IList<Book> Books { get; set; }
     }
 }
