@@ -17,27 +17,27 @@ namespace DemoBookAPI.EF.Repositories
         {
             _dbContext = dbContext;
         }
-        public T GetById(int id)
-        {
-            return _dbContext.Set<T>().Find(id);
-        }
-
         public async Task<T> GetByIdAsync(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
-
-        //public async Task<IEnumerable<T>> GetAllAsync()
-        //{
-        //    return await _dbContext.Set<T>().ToListAsync();
-        //}
+        
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbContext.Set<T>().ToListAsync();
 
-        public async Task<T> Find(Expression<Func<T, bool>> predicate)
+        /// <summary>
+        /// Use FirstOrDefault when you expect a single result.
+        /// Use Where to filter results based on multiple criteria and return a list.
+        /// Use Contains for partial or case-insensitive matches.
+        /// The Find method is best for primary key lookups.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public async Task<T> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _dbContext.Set<T>().SingleOrDefaultAsync(predicate);
+            return await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
         }
-        public async Task<T> Find(Expression<Func<T, bool>> predicate, string[] includes)
+        
+        public async Task<T> FindAsync(Expression<Func<T, bool>> predicate, string[] includes)
         {
             IQueryable<T> query = _dbContext.Set<T>();
             if (predicate != null)
@@ -50,11 +50,11 @@ namespace DemoBookAPI.EF.Repositories
             return await query.SingleOrDefaultAsync(predicate);
         }
 
-        public async Task<IEnumerable<T>> FindAll(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate)
         {
             return await _dbContext.Set<T>().Where(predicate).ToListAsync();
         }
-        public async Task<IEnumerable<T>> FindAll(Expression<Func<T, bool>> predicate, string[] includes)
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate, string[] includes)
         {
             IQueryable<T> query = _dbContext.Set<T>();
             if (predicate != null)
@@ -67,7 +67,7 @@ namespace DemoBookAPI.EF.Repositories
             return await query.Where(predicate).ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> FindAll(Expression<Func<T, bool>> predicate, string[] includes, int skipe, int take)
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate, string[] includes, int skipe, int take)
         {
             IQueryable<T> query = _dbContext.Set<T>();
             if (predicate != null)
@@ -80,10 +80,12 @@ namespace DemoBookAPI.EF.Repositories
             return await query.Where(predicate).Skip(skipe).Take(take).ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, int? take, int? skip,
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate, int? take, int? skip,
             Expression<Func<T, object>> orderBy = null, string orderByDirection = OrderBy.Ascending)
         {
-            IQueryable<T> query = _dbContext.Set<T>().Where(criteria);
+            IQueryable<T> query = _dbContext.Set<T>();
+            if (predicate != null)
+                query = _dbContext.Set<T>().Where(predicate);
 
             if (take.HasValue)
                 query = query.Take(take.Value);
@@ -101,19 +103,77 @@ namespace DemoBookAPI.EF.Repositories
 
             return await query.ToListAsync();
         }
-
-        //adding
-        public T Add(T entity)
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate, string[] includes, int? take, int? skip,
+            Expression<Func<T, object>> orderBy = null, string orderByDirection = OrderBy.Ascending)
         {
-            _dbContext.Set<T>().Add(entity);
-            _dbContext.SaveChanges();
+            IQueryable<T> query = _dbContext.Set<T>();
+            if (predicate != null)
+            {
+                foreach (var item in includes)
+                {
+                    query = query.Include(item);
+                }
+            }
+            if (skip.HasValue)
+                query = query.Skip(skip.Value);
+            if (take.HasValue)
+                query = query.Take(take.Value);
+
+            if (orderBy != null)
+            {
+                if (orderByDirection == OrderBy.Ascending)
+                    query = query.OrderBy(orderBy);
+                else
+                    query = query.OrderByDescending(orderBy);
+            }
+
+            return await query.ToListAsync();
+        }
+        public async Task<T> Add(T entity)
+        {
+            await _dbContext.Set<T>().AddAsync(entity);
             return entity;
         }
         public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
             await _dbContext.Set<T>().AddRangeAsync(entities);
-            _dbContext.SaveChanges();
             return entities;
+        }
+
+        public async Task<T> Update(T entity)
+        {
+            _dbContext.Update(entity);
+            return entity;
+        }
+
+        public async void Delete(T entity)
+        {
+            _dbContext.Set<T>().Remove(entity);
+        }
+
+        public async void DeleteRange(IEnumerable<T> entities)
+        {
+            _dbContext.Set<T>().RemoveRange(entities);
+        }
+
+        public async void Attach(T entity)
+        {
+            _dbContext.Set<T>().Attach(entity);
+        }
+
+        public async void AttachRange(IEnumerable<T> entities)
+        {
+            _dbContext.Set<T>().AttachRange(entities);
+        }
+
+        public async Task<int> CountAsync()
+        {
+            return await _dbContext.Set<T>().CountAsync();
+        }
+
+        public async Task<int> CountAsync(Expression<Func<T, bool>> criteria)
+        {
+            return await _dbContext.Set<T>().CountAsync(criteria);
         }
     }
 }

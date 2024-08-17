@@ -1,11 +1,32 @@
 ﻿{
   //book json
-  "object": {
+  {
     "title": "Intro to SQL",
     "summary": "Introduction to SQL",
     "authorId": 1,
     "publishDate": "2024-08-15T11:54:50.106Z",
     "isbn": "12-12",
     "categoryId": 1
+  },
+  //add author json
+  {
+    "firstName": "Ali",
+    "lastName": "Ali",
+    "email": "a@example.com",
+    "phone": "01234567891",
+    "isActive": true
+  },
+  //update author json
+  {
+    "authorId": 1,
+    "firstName": "Ali",
+    "lastName": "Ali",
+    "isActive": true
+  },
+  //UpdateAuthorEmailAndPhoneRequst json
+  {
+    "authorId": 1,
+    "email": "aaa@example.com",
+    "phone": "03216549871"
   }
 }

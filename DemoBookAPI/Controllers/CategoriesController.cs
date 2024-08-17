@@ -19,9 +19,9 @@ namespace DemoBookAPI.Controllers
 
         [HttpPost]
         [Route("addcategory")]
-        public IActionResult addcategory(AddCategoryRequest requst)
+        public async Task<IActionResult> addcategory(AddCategoryRequest requst)
         {
-            var result = _baseRepository.Add(new Category
+            var result =await _baseRepository.Add(new Category
             {
                 Name = requst.Name,
                 Description = requst.Description

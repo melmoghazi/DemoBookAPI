@@ -3,6 +3,15 @@ Book to BookDetails one to one.
 Book to Category many to many.
 -----------------------------------------------------------------------------
 API Endpoints:
+* Author
+- get list of paged authors ordered by author Id.
+- get author by id
+- get author by name paged
+- post author
+- put author
+- patch author
+- delete author
+
 * Book
 - get list of paged books ordered by date added, title.
 - get book by id
@@ -11,14 +20,7 @@ API Endpoints:
 - put book
 - patch book
 - delete book
-* Author
-- get list of paged authors ordered by date added, name.
-- get author by id
-- get author by name
-- post author
-- put author
-- patch author
-- delete author
+
 * Category
 - get list of paged categories ordered by date added, name.
 - get category by id

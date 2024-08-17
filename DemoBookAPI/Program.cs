@@ -25,7 +25,8 @@ namespace DemoBookAPI
                     builder.Configuration.GetConnectionString("DefaultConnection"),
                         b => b.MigrationsAssembly(typeof(DemoBookAPIContext).Assembly.FullName)));
 
-            builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            //builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
             var app = builder.Build();

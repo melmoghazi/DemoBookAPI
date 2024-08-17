@@ -37,17 +37,17 @@ namespace DemoBookAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("addbook")]
-        public IActionResult AddBook([FromBody] AddBookRequest request)
+        public async Task<IActionResult> AddBook([FromBody] AddBookRequest request)
         {
             //insert into book table
-            var bookResult = _bookRepository.Add(new Book
+            var bookResult = await _bookRepository.Add(new Book
             {
                 Title = request.Title,
                 AuthorId = request.AuthorId,
                 Summary = request.Summary
             });
             //insert into BookDetails table.
-            var bookDetialResult = _bookDetailRepository.Add(new BookDetail
+            var bookDetialResult = await _bookDetailRepository.Add(new BookDetail
             {
                 AddedDate = DateTime.Now,
                 BookId = bookResult.BookId,
