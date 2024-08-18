@@ -3,6 +3,7 @@ using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.Domain;
 using DemoBookAPI.EF.Repositories;
 using DemoBookAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using System.Runtime.Intrinsics.X86;
 
 namespace DemoBookAPI.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [Route("[controller]")]
     [ApiController]
     public class AuthorsController : ControllerBase

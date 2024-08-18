@@ -1,9 +1,11 @@
 ﻿using DemoBookAPI.Domain;
+using DemoBookAPI.Domain.JWT;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoBookAPI.EF
 {
-    public class DemoBookAPIContext : DbContext
+    public class DemoBookAPIContext : IdentityDbContext<ApplicationUser>
     {
         public DemoBookAPIContext(DbContextOptions<DemoBookAPIContext> options) : base(options)
         {
@@ -22,7 +24,7 @@ namespace DemoBookAPI.EF
             //            .HasMany(s => s.Categories) // Book can enroll in many Categories
             //            .WithMany(c => c.Books) // Category can have many Books
             //            .UsingEntity(j => j.ToTable("BookCategories"));  //Explicitly set the join table name
-
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Book>()
                         .HasMany(e => e.Categories)
                         .WithMany(e => e.Books)

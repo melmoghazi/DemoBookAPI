@@ -72,3 +72,13 @@ Update-Database migrationname
 Update-Database -Migration:0
 //Remove the last (most recent) migration
 Remove-Migration
+
+-----------------------------------------------------------------------------
+Need packages  to use JWT:
+Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
+Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+Install-Package System.IdentityModel.Tokens.Jwt
+
+Generate Key: https://8gwifi.org/jwsgen.jsp
+-----------------------------------------------------------------------------

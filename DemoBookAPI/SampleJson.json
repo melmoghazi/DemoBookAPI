@@ -28,5 +28,31 @@
     "authorId": 1,
     "email": "aaa@example.com",
     "phone": "03216549871"
+  },
+  //Auth register
+  {
+    "firstName": "Mohammed",
+    "lastName": "Ali",
+    "username": "melmoghazi",
+    "email": "m.elmoghazi@gmail.com",
+    "password": "A@a12345"
+  },
+  //Auth register
+  {
+    "firstName": "Hind",
+    "lastName": "Ali",
+    "username": "hindali",
+    "email": "hind@gmail.com",
+    "password": "A@a12345"
+  },
+  //Auth token
+  {
+    "email": "m.elmoghazi@gmail.com",
+    "password": "A@a12345"
+  },
+  //Auth addrole
+  {
+    "userId": "f6e877c6-202c-4037-8235-79190dfb625f",
+    "role": "User"
   }
 }
