@@ -3,6 +3,7 @@
 - Book to Category many to many.
 -----------------------------------------------------------------------------
 API Endpoints:
+
 Author
 - get list of paged authors ordered by author Id.
 - get author by id
