@@ -1,6 +1,6 @@
-Book to Author many to one.
-Book to BookDetails one to one.
-Book to Category many to many.
+- Book to Author many to one.
+- Book to BookDetails one to one.
+- Book to Category many to many.
 -----------------------------------------------------------------------------
 API Endpoints:
 Author
