@@ -1,4 +1,5 @@
 
+using Asp.Versioning;
 using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.Domain.JWT;
 using DemoBookAPI.EF;
@@ -58,9 +59,29 @@ namespace DemoBookAPI
                     };
                 });
 
-
-
+            //api versioning
+            builder.Services.AddApiVersioning(options =>
+            {
+                options.DefaultApiVersion = new ApiVersion(1);
+                options.ReportApiVersions = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.ApiVersionReader = ApiVersionReader.Combine(
+                    new UrlSegmentApiVersionReader(),
+                    new HeaderApiVersionReader("api-version"));
+            }).AddApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'V";
+                options.SubstituteApiVersionInUrl = true;
+            });
+    
             var app = builder.Build();
+            
+            var apiVersionSet = app.NewApiVersionSet()
+.HasDeprecatedApiVersion(new ApiVersion(1, 0))
+.HasApiVersion(new ApiVersion(2, 0))
+.HasApiVersion(new ApiVersion(3, 0))
+.ReportApiVersions()
+.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
