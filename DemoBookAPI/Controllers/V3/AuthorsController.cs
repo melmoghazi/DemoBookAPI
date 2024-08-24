@@ -1,21 +1,16 @@
-﻿using DemoBookAPI.Core.Consts;
+﻿using Asp.Versioning;
+using DemoBookAPI.Core.Consts;
 using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.Domain;
-using DemoBookAPI.EF.Repositories;
 using DemoBookAPI.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.Intrinsics.X86;
 
-namespace DemoBookAPI.Controllers
+namespace DemoBookAPI.Controllers.V3
 {
-    [Authorize(Roles ="Admin")]
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]/v{version:apiVersion}")]
+    [ApiVersion("3.0")]
     public class AuthorsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -32,7 +27,7 @@ namespace DemoBookAPI.Controllers
             {
                 if (pageNumber <= 0 || pageSize <= 0)
                     return BadRequest("PageNumber and PageSize must be grater than 0.");
-                pageNumber = (pageNumber >= 1) ? (pageNumber - 1) : pageNumber;
+                pageNumber = pageNumber >= 1 ? pageNumber - 1 : pageNumber;
                 var authorsList = await _unitOfWork.Authors.FindAllAsync(a => a.IsActive, pageSize, pageNumber, a => a.AuthorId, OrderBy.Ascending);
                 var responseList = authorsList.Select(a => new AddAuthorResponse
                 {
@@ -62,7 +57,7 @@ namespace DemoBookAPI.Controllers
                 if (authorId <= 0)
                     return BadRequest("Author Id is required");
                 var authorDB = await _unitOfWork.Authors.GetByIdAsync(authorId);
-                if (authorDB==null)
+                if (authorDB == null)
                     return BadRequest($"The author with id = {authorId} is not exist.");
                 var response = new AddAuthorResponse
                 {
@@ -93,7 +88,7 @@ namespace DemoBookAPI.Controllers
                     return BadRequest("Author Name is required.");
                 if (pageNumber <= 0 || pageSize <= 0)
                     return BadRequest("PageNumber and PageSize must be grater than 0.");
-                pageNumber = (pageNumber >= 1) ? (pageNumber - 1) : pageNumber;
+                pageNumber = pageNumber >= 1 ? pageNumber - 1 : pageNumber;
 
                 var authorsList = await _unitOfWork
                                     .Authors
