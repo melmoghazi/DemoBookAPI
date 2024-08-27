@@ -25,12 +25,14 @@ namespace DemoBookAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           
+
             //EF
             builder.Services.AddDbContext<DemoBookAPIContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
                         b => b.MigrationsAssembly(typeof(DemoBookAPIContext).Assembly.FullName)));
+            //builder.Services.AddDbContext<DemoBookAPIContext>(options =>
+            //    options.UseInMemoryDatabase("dbData"));
 
             //builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

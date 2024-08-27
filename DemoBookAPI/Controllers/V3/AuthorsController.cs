@@ -21,7 +21,7 @@ namespace DemoBookAPI.Controllers.V3
 
         [HttpGet]
         [Route("GetAuthors")]
-        public async Task<IActionResult> GetAuthors(int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors(int pageNumber = 1, int pageSize = 10)
         {
             try
             {
