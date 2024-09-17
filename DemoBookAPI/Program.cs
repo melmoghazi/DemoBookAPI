@@ -4,6 +4,7 @@ using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.Domain.JWT;
 using DemoBookAPI.EF;
 using DemoBookAPI.EF.Repositories;
+using DemoBookAPI.Middlewares;
 using DemoBookAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -96,6 +97,8 @@ namespace DemoBookAPI
 
             app.UseAuthorization();
 
+            app.UseMiddleware<ProfilingMiddleware>();
+            app.UseMiddleware<RateLimitingMiddleware>();
 
             app.MapControllers();
 

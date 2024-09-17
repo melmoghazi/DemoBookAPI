@@ -104,4 +104,9 @@ install packages
 Asp.Versioning.Http
 Asp.Versioning.Mvc.ApiExplorer
 -----------------------------------------------------------------------------
-
+Middleware
+To make your class a middleware:
+1- Pass RequestDelegate in the constructor
+2- Create method name Invoke(HttpContext context)
+3- Register your class as middleware app.UseMiddleware<ProfilingMiddleware>();
+-----------------------------------------------------------------------------
