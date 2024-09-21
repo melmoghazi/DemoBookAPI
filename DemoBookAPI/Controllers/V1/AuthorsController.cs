@@ -1,13 +1,16 @@
 ﻿using Asp.Versioning;
+using DemoBookAPI.Configuration;
 using DemoBookAPI.Core.Consts;
 using DemoBookAPI.Core.Interfaces;
 using DemoBookAPI.Domain;
 using DemoBookAPI.EF.Repositories;
+using DemoBookAPI.Filters;
 using DemoBookAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Intrinsics.X86;
@@ -23,15 +26,40 @@ namespace DemoBookAPI.Controllers.V1
     public class AuthorsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        public AuthorsController(IUnitOfWork unitOfWork)
+        //private readonly IOptions<AttachmentOptions> _attachmentOptions;//registered as singleton
+        //private readonly IOptionsSnapshot<AttachmentOptions> _attachmentOptions;//registered as scopped
+        private readonly IOptionsMonitor<AttachmentOptions> _attachmentOptions;
+
+        //private readonly AttachmentOptions _attachmentOptions;
+
+        public AuthorsController(IUnitOfWork unitOfWork, IOptionsMonitor<AttachmentOptions> attachmentOptions)
         {
             _unitOfWork = unitOfWork;
+            _attachmentOptions = attachmentOptions;
+
+            //_attachmentOptions = attachmentOptions;
+        }
+
+        [HttpGet]
+        [Route("config")]
+        public ActionResult GetConfig()
+        {
+            var config = new
+            {
+                //AttachementOptions = _attachmentOptions.Value
+                AttachementOptions = _attachmentOptions.CurrentValue
+            };
+            return Ok(config);
         }
 
         [HttpGet]
         [Route("GetAuthors")]
+        [LogSensitiveAction]
         public async Task<IActionResult> GetAuthors(int pageNumber = 1, int pageSize = 10)
         {
+            //
+
+            //
             try
             {
                 if (pageNumber <= 0 || pageSize <= 0)
