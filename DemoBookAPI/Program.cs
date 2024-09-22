@@ -49,7 +49,10 @@ namespace DemoBookAPI
             //builder.Configuration.GetSection("Attachments").Bind(attchementOptions);
             //builder.Services.AddSingleton(attchementOptions);
 
-
+            //Add Logging
+            builder.Services.AddLogging(cfg=> {
+                cfg.AddDebug();
+                });
 
             builder.Services.AddControllers(Option => {
                 Option.Filters.Add<LogActivityFilter>();

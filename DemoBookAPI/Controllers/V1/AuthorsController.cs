@@ -86,8 +86,8 @@ namespace DemoBookAPI.Controllers.V1
         }
 
         [HttpGet]
-        [Route("GetAuthorById")]
-        public async Task<IActionResult> GetAuthorById(int authorId)
+        [Route("GetAuthorById/{id}")]
+        public async Task<IActionResult> GetAuthorById([FromRoute(Name ="id")] int authorId)
         {
             try
             {
